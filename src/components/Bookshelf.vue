@@ -275,16 +275,26 @@ export default {
 
 .book-container {
   display: grid;
-  grid-template-columns: 1fr 5fr 1fr;
+  grid-template-columns: 1fr 3fr 3fr;
   gap: 20px;
   padding: 20px;
 }
 
 .column {
-  padding: 1rem;
-  background-color: #f5f5f5;
-  border-radius: 8px;
-  border-right: 1px solid #ccc;
+  padding: 1.5rem;
+  border-radius: 12px;
+  background: linear-gradient(145deg, #ffffff, #f3f3f3);
+  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.1), -4px -4px 8px rgba(255, 255, 255, 0.9);
+}
+
+.column h2 {
+  font-size: 1.5rem;
+  margin-bottom: 4rem;
+  color: #333;
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: bold;
+  letter-spacing: 1px;
 }
 
 .book-filter {
@@ -368,24 +378,57 @@ button:hover {
 
 .book-grid {
   display: grid;
-  gap: 16px;
-}
-
-.selected-books .book-grid {
-  grid-template-columns: repeat(5, 1fr);
-}
-
-.recommended-books .book-grid {
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(auto-fill, minmax(250px, 2fr));
+  gap: 30px;
+  justify-content: center;
 }
 
 .book-item {
-  border: 1px solid #ccc;
-  padding: 16px;
+  background: #fff;
+  width: 300px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.book-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }
 
 .book-img {
   width: 100%;
-  height: auto;
+  height: 250px;
+  object-fit: cover;
+  border-bottom: 1px solid #eee;
 }
+
+.book-item h3 {
+  font-size: 1.2rem;
+  margin: 1rem 0 0.5rem;
+  color: #007bff;
+  text-align: center;
+  text-transform: capitalize;
+  font-weight: bold;
+}
+
+.book-item p {
+  font-size: 0.9rem;
+  margin: 0.3rem 0;
+  color: #555;
+  line-height: 1.4;
+}
+
+.book-item p:last-child {
+  font-weight: bold;
+  color: #28a745;
+}
+
+.book-item p:nth-child(5) {
+  font-weight: bold;
+  color: #ffc107;
+}
+
 </style>

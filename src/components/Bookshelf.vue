@@ -181,7 +181,7 @@ export default {
     const recommendedBooks = ref(books.recommend);
     const getFilters = async () => {
         try {
-            const response = await fetch(`api/get_info`);
+            const response = await fetch(`api/api/get_info`);
             if (!response.ok) {
               throw new Error(`HTTP ошибка: ${response.status}`);
             }
@@ -197,7 +197,7 @@ export default {
     const getBooks = async (filters) => {
       try {
         loadingBook.value = true
-        const response = await fetch(`api/get_books`, {
+        const response = await fetch(`api/api/get_books`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',

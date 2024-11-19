@@ -97,15 +97,25 @@
           <div v-for="book in searchBooks" :key="book.id" class="book-item">
             <!--          <img :src="book.img" :alt="book.name" class="book-img" />-->
             <img :src="logo" alt="logo" class="book-img" />
-            <h3>{{ book.name }}</h3>
-            <p>Автор(ы): {{ book.authors.join(', ') }}</p>
-            <p>Жанр: {{ book.genre }}</p>
-            <p>Язык: {{ book.lang }}</p>
-            <p>Возрастной рейтинг: {{ book.age_rating }}+</p>
-            <p>Рейтинг: {{ book.rating }}</p>
-            <p>Цена: {{ book.cost }} грн</p>
-            <p>Количество страниц: {{ book.number_of_page }}</p>
-            <p>Год: {{ book.year }}</p>
+            <div>
+              <h3>{{ book.name }}</h3>
+              <p>Автор(ы): {{ book.authors.join(', ') }}</p>
+              <p>Жанр: {{ book.genre }}</p>
+              <p>Язык: {{ book.lang }}</p>
+              <p class="age-rating">{{ book.age_rating }}+</p>
+              <p class="rating-container">
+                <img
+                    v-for="n in book.rating"
+                    :key="n"
+                    :src="iconStar"
+                    alt="rating"
+                    class="rating"
+                />
+              </p>
+              <p>Цена: {{ book.cost }} грн</p>
+              <p>Количество страниц: {{ book.number_of_page }}</p>
+              <p>Год: {{ book.year }}</p>
+            </div>
           </div>
       </div>
     </div>
@@ -116,15 +126,25 @@
         <div v-for="book in recommendedBooks" :key="book.id" class="book-item">
           <!--          <img :src="book.img" :alt="book.name" class="book-img" />-->
           <img :src="logo" alt="logo" class="book-img" />
-          <h3>{{ book.name }}</h3>
-          <p>Автор(ы): {{ book.authors.join(', ') }}</p>
-          <p>Жанр: {{ book.genre }}</p>
-          <p>Язык: {{ book.lang }}</p>
-          <p>Возрастной рейтинг: {{ book.age_rating }}+</p>
-          <p>Рейтинг: {{ book.rating }}</p>
-          <p>Цена: {{ book.cost }} грн</p>
-          <p>Количество страниц: {{ book.number_of_page }}</p>
-          <p>Год: {{ book.year }}</p>
+          <div>
+            <h3>{{ book.name }}</h3>
+            <p>Автор(ы): {{ book.authors.join(', ') }}</p>
+            <p>Жанр: {{ book.genre }}</p>
+            <p>Язык: {{ book.lang }}</p>
+            <p class="age-rating">{{ book.age_rating }}+</p>
+            <p class="rating-container">
+              <img
+                  v-for="n in book.rating"
+                  :key="n"
+                  :src="iconStar"
+                  alt="rating"
+                  class="rating"
+              />
+            </p>
+            <p>Цена: {{ book.cost }} грн</p>
+            <p>Количество страниц: {{ book.number_of_page }}</p>
+            <p>Год: {{ book.year }}</p>
+          </div>
         </div>
       </div>
     </div>
@@ -134,7 +154,9 @@
 <script>
 import filtersNew from '../static_data/filters.json';
 import books from './../static_data/book.json'
+
 import logo from '../assets/logo.png'
+import iconStar from '../assets/icon-star.png'
 
 import { ref, onMounted, watch, reactive   } from 'vue';
 
@@ -263,6 +285,7 @@ export default {
       searchBooks,
       recommendedBooks,
       logo,
+      iconStar,
       dataBookFilter,
       loadingBook
     };
@@ -275,7 +298,7 @@ export default {
 
 .book-container {
   display: grid;
-  grid-template-columns: 1fr 3fr 3fr;
+  grid-template-columns: minmax(250px, 300px) 3fr 3fr;
   gap: 20px;
   padding: 20px;
 }
@@ -384,17 +407,45 @@ button:hover {
 }
 
 .book-item {
-  background: #fff;
+  background: aliceblue;
   width: 300px;
   border-radius: 12px;
   overflow: hidden;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   cursor: pointer;
+  position: relative;
+}
+
+.age-rating {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-weight: bold;
+  font-size: 28px !important;
+  border: 1px solid rgba(255,193,7, 1);
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  color: #ffc107 !important;
+}
+
+.rating-container{
+  position: absolute;
+  top: 220px;
+  right: 10px;
+}
+
+.rating{
+  width: 20px;
+  height: 20px;
 }
 
 .book-item:hover {
-  transform: translateY(-5px);
+  transform: translateY(-2px);
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }
 
@@ -424,11 +475,6 @@ button:hover {
 .book-item p:last-child {
   font-weight: bold;
   color: #28a745;
-}
-
-.book-item p:nth-child(5) {
-  font-weight: bold;
-  color: #ffc107;
 }
 
 </style>

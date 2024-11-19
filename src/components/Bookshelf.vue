@@ -1,7 +1,7 @@
 <template>
   <div class="book-container">
     <div class="book-filter column ">
-      <h2>Filters</h2>
+      <h2>Фільтра</h2>
       <label>
         Жанр:
         <select v-model="filters.genre">
@@ -91,7 +91,7 @@
       <button @click="applyFilters">Застосувати фільтри</button>
     </div>
     <div class="column selected-books">
-      <h2>Search - TOP 10</h2>
+      <h2>Пошук - TOP 10</h2>
       <div v-if="loadingBook">Loading search</div>
       <div v-else class="book-grid">
           <div v-for="book in searchBooks" :key="book.id" class="book-item">
@@ -120,7 +120,7 @@
       </div>
     </div>
     <div class="column recommended-books">
-      <h2>Recommended - TOP 10</h2>
+      <h2>Рекомендаціі - TOP 10</h2>
       <div v-if="loadingBook">Loading recommended</div>
       <div v-else class="book-grid">
         <div v-for="book in recommendedBooks" :key="book.id" class="book-item">

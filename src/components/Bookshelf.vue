@@ -91,7 +91,7 @@
       <button @click="applyFilters">Застосувати фільтри</button>
     </div>
     <div class="column selected-books">
-      <h2>Search</h2>
+      <h2>Search - TOP 10</h2>
       <div v-if="loadingBook">Loading search</div>
       <div v-else class="book-grid">
           <div v-for="book in searchBooks" :key="book.id" class="book-item">
@@ -120,7 +120,7 @@
       </div>
     </div>
     <div class="column recommended-books">
-      <h2>Recommended</h2>
+      <h2>Recommended - TOP 10</h2>
       <div v-if="loadingBook">Loading recommended</div>
       <div v-else class="book-grid">
         <div v-for="book in recommendedBooks" :key="book.id" class="book-item">
@@ -181,7 +181,7 @@ export default {
     const recommendedBooks = ref(books.recommend);
     const getFilters = async () => {
         try {
-            const response = await fetch(`api/api/get_info`);
+            const response = await fetch(`api/get_info`);
             if (!response.ok) {
               throw new Error(`HTTP ошибка: ${response.status}`);
             }
@@ -197,7 +197,7 @@ export default {
     const getBooks = async (filters) => {
       try {
         loadingBook.value = true
-        const response = await fetch(`api/api/get_books`, {
+        const response = await fetch(`api/get_books`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',

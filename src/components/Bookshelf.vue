@@ -95,26 +95,26 @@
       <div v-if="loadingBook">Loading search</div>
       <div v-else class="book-grid">
           <div v-for="book in searchBooks" :key="book.id" class="book-item">
-            <!--          <img :src="book.img" :alt="book.name" class="book-img" />-->
-            <img :src="logo" alt="logo" class="book-img" />
+            <img :src="book.img" :alt="book.name" class="book-img" />
+            <!--            <img :src="logo" alt="logo" class="book-img" />-->
             <div>
               <h3>{{ book.name }}</h3>
-              <p>Автор(ы): {{ book.authors.join(', ') }}</p>
-              <p>Жанр: {{ book.genre }}</p>
-              <p>Язык: {{ book.lang }}</p>
+              <p>Автор: {{ book.authors.join(', ') }}</p>
+              <p>Жанр: {{ book.genres.join(', ')  }}</p>
+              <p>Мова: {{ book.lang }}</p>
               <p class="age-rating">{{ book.age_rating }}+</p>
               <p class="rating-container">
                 <img
                     v-for="n in book.rating"
                     :key="n"
-                    :src="iconStar"
+                    src="images/icon-star.png"
                     alt="rating"
                     class="rating"
                 />
               </p>
-              <p>Цена: {{ book.cost }} грн</p>
-              <p>Количество страниц: {{ book.number_of_page }}</p>
-              <p>Год: {{ book.year }}</p>
+              <p>Ціна: {{ book.cost }} грн</p>
+              <p>Кількість сторінок : {{ book.number_of_page }}</p>
+              <p>Рік: {{ book.year }}</p>
             </div>
           </div>
       </div>
@@ -124,26 +124,26 @@
       <div v-if="loadingBook">Loading recommended</div>
       <div v-else class="book-grid">
         <div v-for="book in recommendedBooks" :key="book.id" class="book-item">
-          <!--          <img :src="book.img" :alt="book.name" class="book-img" />-->
-          <img :src="logo" alt="logo" class="book-img" />
+          <img :src="book.img" :alt="book.name" class="book-img" />
+          <!--          <img :src="logo" alt="logo" class="book-img" />-->
           <div>
             <h3>{{ book.name }}</h3>
-            <p>Автор(ы): {{ book.authors.join(', ') }}</p>
-            <p>Жанр: {{ book.genre }}</p>
-            <p>Язык: {{ book.lang }}</p>
+            <p>Автор: {{ book.authors.join(', ') }}</p>
+            <p>Жанр: {{ book.genres.join(', ')  }}</p>
+            <p>Мова: {{ book.lang }}</p>
             <p class="age-rating">{{ book.age_rating }}+</p>
             <p class="rating-container">
               <img
                   v-for="n in book.rating"
                   :key="n"
-                  :src="iconStar"
+                  src="images/icon-star.png"
                   alt="rating"
                   class="rating"
               />
             </p>
-            <p>Цена: {{ book.cost }} грн</p>
-            <p>Количество страниц: {{ book.number_of_page }}</p>
-            <p>Год: {{ book.year }}</p>
+            <p>Ціна: {{ book.cost }} грн</p>
+            <p>Кількість сторінок: {{ book.number_of_page }}</p>
+            <p>Рік: {{ book.year }}</p>
           </div>
         </div>
       </div>
@@ -156,7 +156,7 @@ import filtersNew from '../static_data/filters.json';
 import books from './../static_data/book.json'
 
 import logo from '../assets/logo.png'
-import iconStar from '../assets/icon-star.png'
+// import iconStar from '../assets/icon-star.png'
 
 import { ref, onMounted, watch, reactive   } from 'vue';
 
@@ -285,7 +285,7 @@ export default {
       searchBooks,
       recommendedBooks,
       logo,
-      iconStar,
+      // iconStar,
       dataBookFilter,
       loadingBook
     };

@@ -1,365 +1,345 @@
 {
-  "recommend": [
+  "search": [
     {
-      "id": 51,
+      "id": 63,
       "name": "Розриті могили",
       "lang": "Українська",
       "age_rating": 16,
-      "rating": 3,
+      "rating": 5,
       "cost": 245,
       "number_of_page": 480,
       "year": 2024,
-      "genre": "Проза",
-      "img": "public/dug_up_graves.jpg",
+      "genres": [
+        "Проза"
+      ],
+      "img": "images/dug_up_graves.jpg",
       "authors": [
         "Шикін Павло"
       ]
     },
     {
-      "id": 52,
-      "name": "Жерстяні сурмачі",
-      "lang": "Українська",
-      "age_rating": 16,
-      "rating": 5,
-      "cost": 356,
-      "number_of_page": 128,
-      "year": 2024,
-      "genre": "Проза",
-      "img": "public/surmachi.png",
-      "authors": [
-        "Шикін Павло"
-      ]
-    },
-    {
-      "id": 53,
+      "id": 65,
       "name": "Інтернат",
       "lang": "Українська",
       "age_rating": 12,
-      "rating": 2,
+      "rating": 5,
       "cost": 345,
       "number_of_page": 336,
       "year": 2024,
-      "genre": "Проза",
-      "img": "public/internat.jpg",
+      "genres": [
+        "Проза"
+      ],
+      "img": "images/internat.jpg",
       "authors": [
         "Жадан Сергій"
       ]
     },
     {
-      "id": 54,
+      "id": 66,
       "name": "Арабески",
       "lang": "Українська",
       "age_rating": 6,
-      "rating": 4,
+      "rating": 5,
       "cost": 237,
       "number_of_page": 136,
       "year": 2024,
-      "genre": "Проза",
-      "img": "public/arabesky.jpg",
+      "genres": [
+        "Проза"
+      ],
+      "img": "images/arabesky.jpg",
       "authors": [
         "Жадан Сергій"
       ]
     },
     {
-      "id": 55,
-      "name": "Месопотамія",
+      "id": 69,
+      "name": "Ворошиловград",
       "lang": "Українська",
-      "age_rating": 0,
-      "rating": 3,
-      "cost": 360,
-      "number_of_page": 456,
-      "year": 2022,
-      "genre": "Проза",
-      "img": "public/mes.jpg",
+      "age_rating": 12,
+      "rating": 5,
+      "cost": 120,
+      "number_of_page": 320,
+      "year": 2018,
+      "genres": [
+        "Проза"
+      ],
+      "img": "images/vorosh.jpg",
       "authors": [
         "Жадан Сергій"
       ]
     },
     {
-      "id": 56,
+      "id": 72,
+      "name": "Після третього дзвінка вхід до зали забороняється",
+      "lang": "Українська",
+      "age_rating": 6,
+      "rating": 5,
+      "cost": 346,
+      "number_of_page": 416,
+      "year": 2017,
+      "genres": [
+        "Проза"
+      ],
+      "img": "images/zal.jpg",
+      "authors": [
+        "Забужко Оксана"
+      ]
+    },
+    {
+      "id": 68,
       "name": "Гімн демократичної молоді",
       "lang": "Українська",
-      "age_rating": 0,
+      "age_rating": 6,
       "rating": 4,
       "cost": 270,
       "number_of_page": 240,
       "year": 2023,
-      "genre": "Проза",
-      "img": "public/gimn.jpg",
+      "genres": [
+        "Проза"
+      ],
+      "img": "images/gimn.jpg",
       "authors": [
         "Жадан Сергій"
       ]
     },
     {
-      "id": 57,
-      "name": "Ворошиловград",
-      "lang": "Українська",
-      "age_rating": 12,
-      "rating": 3,
-      "cost": 120,
-      "number_of_page": 320,
-      "year": 2018,
-      "genre": "Проза",
-      "img": "public/vorosh.jpg",
-      "authors": [
-        "Жадан Сергій"
-      ]
-    },
-    {
-      "id": 58,
-      "name": "Білий попіл",
-      "lang": "Українська",
-      "age_rating": 0,
-      "rating": 4,
-      "cost": 180,
-      "number_of_page": 352,
-      "year": 2018,
-      "genre": "Містичний детектив",
-      "img": "public/whitep.jpg",
-      "authors": [
-        "Павлюк Ілларіон"
-      ]
-    },
-    {
-      "id": 59,
-      "name": "Я бачу, Вас цікавить пітьма",
-      "lang": "Українська",
-      "age_rating": 0,
-      "rating": 3,
-      "cost": 300,
-      "number_of_page": 664,
-      "year": 2020,
-      "genre": "Містичний детектив",
-      "img": "public/ya_bachu_vas_cikavytj_pitjma_cover_full.jpg",
-      "authors": [
-        "Павлюк Ілларіон"
-      ]
-    },
-    {
-      "id": 60,
-      "name": "Танець недоумка",
+      "id": 71,
+      "name": "Найдовша подорож",
       "lang": "Українська",
       "age_rating": 6,
+      "rating": 4,
+      "cost": 140,
+      "number_of_page": 168,
+      "year": 2022,
+      "genres": [
+        "Проза"
+      ],
+      "img": "images/travel.jpg",
+      "authors": [
+        "Забужко Оксана"
+      ]
+    },
+    {
+      "id": 67,
+      "name": "Месопотамія",
+      "lang": "Українська",
+      "age_rating": 6,
+      "rating": 3,
+      "cost": 360,
+      "number_of_page": 456,
+      "year": 2022,
+      "genres": [
+        "Проза"
+      ],
+      "img": "images/mes.jpg",
+      "authors": [
+        "Жадан Сергій"
+      ]
+    },
+    {
+      "id": 64,
+      "name": "Жерстяні сурмачі",
+      "lang": "Українська",
+      "age_rating": 16,
       "rating": 2,
-      "cost": 270,
-      "number_of_page": 680,
-      "year": 2019,
-      "genre": "Містичний детектив",
-      "img": "public/cover_dance.jpg",
-      "authors": [
-        "Павлюк Ілларіон"
-      ]
-    },
-    {
-      "id": 61,
-      "name": "The Black Feathers",
-      "lang": "English",
-      "age_rating": 0,
-      "rating": 5,
-      "cost": 648,
-      "number_of_page": 400,
+      "cost": 356,
+      "number_of_page": 128,
       "year": 2024,
-      "genre": "Містичний детектив",
-      "img": "public/feathers.jpg",
+      "genres": [
+        "Проза"
+      ],
+      "img": "images/surmachi.png",
       "authors": [
-        "Netley Rebecca"
+        "Шикін Павло"
       ]
     },
     {
-      "id": 62,
-      "name": "The Whistling",
+      "id": 74,
+      "name": "Your Ad Could Go Here: Stories",
       "lang": "English",
       "age_rating": 12,
-      "rating": 5,
-      "cost": 648,
-      "number_of_page": 384,
-      "year": 2022,
-      "genre": "Містичний детектив",
-      "img": "public/whistling.jpg",
+      "rating": 2,
+      "cost": 583,
+      "number_of_page": 252,
+      "year": 2020,
+      "genres": [
+        "Проза"
+      ],
+      "img": "images/here.jpg",
       "authors": [
-        "Netley Rebecca"
+        "Забужко Оксана"
       ]
     }
   ],
-  "search": [
+  "recommend": [
     {
-      "id": 51,
-      "name": "Розриті могили",
+      "id": 70,
+      "name": "Музей покинутих секретів",
       "lang": "Українська",
-      "age_rating": 16,
-      "rating": 3,
-      "cost": 245,
-      "number_of_page": 480,
-      "year": 2024,
-      "genre": "Проза",
-      "img": "public/dug_up_graves.jpg",
-      "authors": [
-        "Шикін Павло"
-      ]
-    },
-    {
-      "id": 52,
-      "name": "Жерстяні сурмачі",
-      "lang": "Українська",
-      "age_rating": 16,
+      "age_rating": 6,
       "rating": 5,
-      "cost": 356,
-      "number_of_page": 128,
-      "year": 2024,
-      "genre": "Проза",
-      "img": "public/surmachi.png",
+      "cost": 326,
+      "number_of_page": 832,
+      "year": 2015,
+      "genres": [
+        "Проза"
+      ],
+      "img": "images/secret.jpg",
       "authors": [
-        "Шикін Павло"
+        "Забужко Оксана"
       ]
     },
     {
-      "id": 53,
-      "name": "Інтернат",
-      "lang": "Українська",
-      "age_rating": 12,
-      "rating": 2,
-      "cost": 345,
-      "number_of_page": 336,
-      "year": 2024,
-      "genre": "Проза",
-      "img": "public/internat.jpg",
-      "authors": [
-        "Жадан Сергій"
-      ]
-    },
-    {
-      "id": 54,
-      "name": "Арабески",
-      "lang": "Українська",
-      "age_rating": 6,
-      "rating": 4,
-      "cost": 237,
-      "number_of_page": 136,
-      "year": 2024,
-      "genre": "Проза",
-      "img": "public/arabesky.jpg",
-      "authors": [
-        "Жадан Сергій"
-      ]
-    },
-    {
-      "id": 55,
-      "name": "Месопотамія",
-      "lang": "Українська",
-      "age_rating": 0,
-      "rating": 3,
-      "cost": 360,
-      "number_of_page": 456,
-      "year": 2022,
-      "genre": "Проза",
-      "img": "public/mes.jpg",
-      "authors": [
-        "Жадан Сергій"
-      ]
-    },
-    {
-      "id": 56,
-      "name": "Гімн демократичної молоді",
-      "lang": "Українська",
-      "age_rating": 0,
-      "rating": 4,
-      "cost": 270,
-      "number_of_page": 240,
-      "year": 2023,
-      "genre": "Проза",
-      "img": "public/gimn.jpg",
-      "authors": [
-        "Жадан Сергій"
-      ]
-    },
-    {
-      "id": 57,
-      "name": "Ворошиловград",
-      "lang": "Українська",
-      "age_rating": 12,
-      "rating": 3,
-      "cost": 120,
-      "number_of_page": 320,
-      "year": 2018,
-      "genre": "Проза",
-      "img": "public/vorosh.jpg",
-      "authors": [
-        "Жадан Сергій"
-      ]
-    },
-    {
-      "id": 58,
-      "name": "Білий попіл",
-      "lang": "Українська",
-      "age_rating": 0,
-      "rating": 4,
-      "cost": 180,
-      "number_of_page": 352,
-      "year": 2018,
-      "genre": "Містичний детектив",
-      "img": "public/whitep.jpg",
-      "authors": [
-        "Павлюк Ілларіон"
-      ]
-    },
-    {
-      "id": 59,
-      "name": "Я бачу, Вас цікавить пітьма",
-      "lang": "Українська",
-      "age_rating": 0,
-      "rating": 3,
-      "cost": 300,
-      "number_of_page": 664,
-      "year": 2020,
-      "genre": "Містичний детектив",
-      "img": "public/ya_bachu_vas_cikavytj_pitjma_cover_full.jpg",
-      "authors": [
-        "Павлюк Ілларіон"
-      ]
-    },
-    {
-      "id": 60,
-      "name": "Танець недоумка",
-      "lang": "Українська",
-      "age_rating": 6,
-      "rating": 2,
-      "cost": 270,
-      "number_of_page": 680,
-      "year": 2019,
-      "genre": "Містичний детектив",
-      "img": "public/cover_dance.jpg",
-      "authors": [
-        "Павлюк Ілларіон"
-      ]
-    },
-    {
-      "id": 61,
+      "id": 78,
       "name": "The Black Feathers",
       "lang": "English",
-      "age_rating": 0,
+      "age_rating": 6,
       "rating": 5,
       "cost": 648,
       "number_of_page": 400,
       "year": 2024,
-      "genre": "Містичний детектив",
-      "img": "public/feathers.jpg",
+      "genres": [
+        "Містичний детектив"
+      ],
+      "img": "images/feathers.jpg",
       "authors": [
         "Netley Rebecca"
       ]
     },
     {
-      "id": 62,
-      "name": "The Whistling",
-      "lang": "English",
-      "age_rating": 12,
+      "id": 82,
+      "name": "Шпигунки з притулку Артемiда. Скарби богині",
+      "lang": "Українська",
+      "age_rating": 6,
       "rating": 5,
-      "cost": 648,
-      "number_of_page": 384,
-      "year": 2022,
-      "genre": "Містичний детектив",
-      "img": "public/whistling.jpg",
+      "cost": 210,
+      "number_of_page": 368,
+      "year": 2024,
+      "genres": [
+        "Пригоди"
+      ],
+      "img": "images/skarby.jpg",
       "authors": [
-        "Netley Rebecca"
+        "Довгопол Наталія"
+      ]
+    },
+    {
+      "id": 86,
+      "name": "Harry Potter and the Prisoner of Azkaban",
+      "lang": "English",
+      "age_rating": 6,
+      "rating": 5,
+      "cost": 458,
+      "number_of_page": 480,
+      "year": 2014,
+      "genres": [
+        "Фентезі"
+      ],
+      "img": "images/hp3.jpeg",
+      "authors": [
+        "Rowling Joanne"
+      ]
+    },
+    {
+      "id": 81,
+      "name": "Шпигунки з притулку Артемiда. Колапс старого свiту",
+      "lang": "Українська",
+      "age_rating": 6,
+      "rating": 4,
+      "cost": 170,
+      "number_of_page": 352,
+      "year": 2021,
+      "genres": [
+        "Пригоди"
+      ],
+      "img": "images/kolaps.jpg",
+      "authors": [
+        "Довгопол Наталія"
+      ]
+    },
+    {
+      "id": 89,
+      "name": "Harry Potter and the Half-Blood Prince. Hufflepuff Edition",
+      "lang": "English",
+      "age_rating": 6,
+      "rating": 4,
+      "cost": 697,
+      "number_of_page": 560,
+      "year": 2021,
+      "genres": [
+        "Фентезі"
+      ],
+      "img": "images/hp6.jpeg",
+      "authors": [
+        "Rowling Joanne"
+      ]
+    },
+    {
+      "id": 85,
+      "name": "Harry Potter and the Chamber of Secrets",
+      "lang": "English",
+      "age_rating": 6,
+      "rating": 4,
+      "cost": 1926,
+      "number_of_page": 400,
+      "year": 2021,
+      "genres": [
+        "Фентезі"
+      ],
+      "img": "images/hp2.jpg",
+      "authors": [
+        "Rowling Joanne"
+      ]
+    },
+    {
+      "id": 87,
+      "name": "Harry Potter and the Goblet of Fire (Ravenclaw Edition)",
+      "lang": "English",
+      "age_rating": 6,
+      "rating": 4,
+      "cost": 570,
+      "number_of_page": 627,
+      "year": 2020,
+      "genres": [
+        "Фентезі"
+      ],
+      "img": "images/hp4.jpeg",
+      "authors": [
+        "Rowling Joanne"
+      ]
+    },
+    {
+      "id": 91,
+      "name": "A LA CROISEE DES MONDES LINTEGRALE",
+      "lang": "Français",
+      "age_rating": 6,
+      "rating": 3,
+      "cost": 3369,
+      "number_of_page": 264,
+      "year": 2017,
+      "genres": [
+        "Фентезі"
+      ],
+      "img": "images/mondes.jpg",
+      "authors": [
+        "Pullman Philip"
+      ]
+    },
+    {
+      "id": 76,
+      "name": "Білий попіл",
+      "lang": "Українська",
+      "age_rating": 6,
+      "rating": 3,
+      "cost": 180,
+      "number_of_page": 352,
+      "year": 2018,
+      "genres": [
+        "Містичний детектив"
+      ],
+      "img": "images/whitep.jpg",
+      "authors": [
+        "Павлюк Ілларіон"
       ]
     }
   ]

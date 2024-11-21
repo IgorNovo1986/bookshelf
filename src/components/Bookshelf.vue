@@ -1,4 +1,7 @@
 <template>
+  <div class="column">
+    <h1>Помічник з пошуку літератури</h1>
+  </div>
   <div class="book-container">
     <div class="book-filter column ">
       <h2>Фільтра</h2>
@@ -155,7 +158,7 @@
 import filtersNew from '../static_data/filters.json';
 import books from './../static_data/book.json'
 
-import logo from '../assets/logo.png'
+// import logo from '../assets/logo.png'
 // import iconStar from '../assets/icon-star.png'
 
 import { ref, onMounted, watch, reactive   } from 'vue';
@@ -181,7 +184,7 @@ export default {
     const recommendedBooks = ref(books.recommend);
     const getFilters = async () => {
         try {
-            const response = await fetch(`api/get_info`);
+            const response = await fetch(`api/api/get_info`);
             if (!response.ok) {
               throw new Error(`HTTP ошибка: ${response.status}`);
             }
@@ -197,7 +200,7 @@ export default {
     const getBooks = async (filters) => {
       try {
         loadingBook.value = true
-        const response = await fetch(`api/get_books`, {
+        const response = await fetch(`api/api/get_books`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -284,7 +287,7 @@ export default {
       applyFilters,
       searchBooks,
       recommendedBooks,
-      logo,
+      // logo,
       // iconStar,
       dataBookFilter,
       loadingBook
@@ -407,7 +410,7 @@ button:hover {
 }
 
 .book-item {
-  background: aliceblue;
+  background: rgba(240, 248, 255, 0.1);
   width: 300px;
   border-radius: 12px;
   overflow: hidden;
@@ -435,7 +438,7 @@ button:hover {
 
 .rating-container{
   position: absolute;
-  top: 220px;
+  top: 370px;
   right: 10px;
 }
 
@@ -451,8 +454,8 @@ button:hover {
 
 .book-img {
   width: 100%;
-  height: 250px;
-  object-fit: cover;
+  height: 400px;
+  object-fit: fill;
   border-bottom: 1px solid #eee;
 }
 

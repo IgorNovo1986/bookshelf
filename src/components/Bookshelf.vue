@@ -1,5 +1,5 @@
 <template>
-  <div class="column">
+  <div class="title">
     <h1>Помічник з пошуку літератури</h1>
   </div>
   <div class="book-container">
@@ -184,7 +184,7 @@ export default {
     const recommendedBooks = ref(books.recommend);
     const getFilters = async () => {
         try {
-            const response = await fetch(`api/api/get_info`);
+            const response = await fetch(`api/get_info`);
             if (!response.ok) {
               throw new Error(`HTTP ошибка: ${response.status}`);
             }
@@ -200,7 +200,7 @@ export default {
     const getBooks = async (filters) => {
       try {
         loadingBook.value = true
-        const response = await fetch(`api/api/get_books`, {
+        const response = await fetch(`api/get_books`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -298,6 +298,13 @@ export default {
 
 
 <style scoped>
+
+.title{
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 1px 0;
+  margin: 0 20px;
+  background-color: rgba(211, 211, 211, 0.2);
+}
 
 .book-container {
   display: grid;

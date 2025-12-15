@@ -1,16 +1,73 @@
 <template>
-  <Bookshelf />
+  <component :is="layout">
+    <router-view></router-view>
+
+    <template v-if="isModal">
+      <modal-app
+          v-if="modal.modal"
+          :title="modal.modalTitle"
+          :delay="modal.delay"
+          :isVisibleProps="modal.isVisible"
+          @closeModal="handleCloseModal"
+      >
+        <component :is="modal.modal"/>
+      </modal-app>
+    </template>
+  </component>
 </template>
 
 <script>
-import Bookshelf from './components/Bookshelf.vue'
+
+import DefaultLayout from "@/layouts/DefaultLayout.vue"
+import ModalApp from "@/components/Modal.vue";
+import Register from "@/components/Register.vue";
+
+import { computed, ref } from "vue";
+import { useRoute } from "vue-router"
+import { useAuthStore } from '@/stores/auth'
 
 export default {
-  name: 'App',
+  name: 'MainApp',
   components: {
-    Bookshelf
+    ModalApp,
+    Register
+  },
+  setup() {
+
+    const route = useRoute()
+    const authStore = useAuthStore()
+
+    const isModal = (ref(true))
+
+    const modal = computed(()=> {
+      if (route.name === "cart" && !authStore.isAuthenticate){
+        return {
+          modal: Register,
+          delay: 2000,
+          modalTitle: '',
+          isVisible: false
+        }
+      }
+      return {
+        Modal: null
+      }
+    })
+
+    const handleCloseModal = (e) => {
+      isModal.value = e
+    }
+
+    const layout = computed(() => {
+      return route.meta.layout || DefaultLayout;
+    });
+    return {
+      layout,
+      modal,
+      handleCloseModal,
+      isModal
+    };
   }
-}
+};
 </script>
 
 <style>

@@ -1,7 +1,4 @@
 <template>
-  <div class="title">
-    <h1>Помічник з пошуку літератури</h1>
-  </div>
   <div class="book-container">
     <div class="book-filter column ">
       <h2>Фільтра</h2>
@@ -93,15 +90,57 @@
 
       <button @click="applyFilters">Застосувати фільтри</button>
     </div>
-    <div class="column selected-books">
-      <h2>Пошук - TOP 10</h2>
-      <div v-if="loadingBook">Loading search</div>
-      <div v-else class="book-grid">
-          <div v-for="book in searchBooks" :key="book.id" class="book-item">
+    <div>
+      <div class="column selected-books">
+        <h2>Пошук - TOP 10</h2>
+        <div v-if="loadingBook">Loading search</div>
+        <div v-else class="book-grid">
+            <div v-for="book in searchBooks" :key="book.id" class="book-item">
+              <img :src="book.img" :alt="book.name" class="book-img" />
+              <!--            <img :src="logo" alt="logo" class="book-img" />-->
+              <div>
+                <router-link :to="`/book-shelf/${book.id}`">
+                  <h3>{{ book.name }}</h3>
+                </router-link>
+                <p>Автор: {{ book.authors.join(', ') }}</p>
+                <p>Жанр: {{ book.genres.join(', ')  }}</p>
+                <p>Мова: {{ book.lang }}</p>
+                <p class="age-rating">{{ book.age_rating }}+</p>
+                <p class="rating-container">
+                  <img
+                      v-for="n in book.rating"
+                      :key="n"
+                      src="images/icon-star.png"
+                      alt="rating"
+                      class="rating"
+                  />
+                </p>
+                <p>Ціна: {{ book.cost }} грн</p>
+                <p>Кількість сторінок : {{ book.number_of_page }}</p>
+                <p>Рік: {{ book.year }}</p>
+                <button
+                    class="button_add_to_cart"
+                    :class="bookButtonStates[book.id]?.class"
+                    @click="addToCart(book.id)"
+                    :disabled="bookButtonStates[book.id]?.disabled"
+                >
+                  {{ bookButtonStates[book.id]?.text }}
+                </button>
+              </div>
+            </div>
+        </div>
+      </div>
+      <div class="column recommended-books">
+        <h2>Рекомендаціі - TOP 10</h2>
+        <div v-if="loadingBook">Loading recommended</div>
+        <div v-else class="book-grid">
+          <div v-for="book in recommendedBooks" :key="book.id" class="book-item">
             <img :src="book.img" :alt="book.name" class="book-img" />
-            <!--            <img :src="logo" alt="logo" class="book-img" />-->
+            <!--          <img :src="logo" alt="logo" class="book-img" />-->
             <div>
-              <h3>{{ book.name }}</h3>
+              <router-link :to="`/book-shelf/${book.id}`">
+                <h3>{{ book.name }}</h3>
+              </router-link>
               <p>Автор: {{ book.authors.join(', ') }}</p>
               <p>Жанр: {{ book.genres.join(', ')  }}</p>
               <p>Мова: {{ book.lang }}</p>
@@ -116,37 +155,17 @@
                 />
               </p>
               <p>Ціна: {{ book.cost }} грн</p>
-              <p>Кількість сторінок : {{ book.number_of_page }}</p>
+              <p>Кількість сторінок: {{ book.number_of_page }}</p>
               <p>Рік: {{ book.year }}</p>
+              <button
+                  class="button_add_to_cart"
+                  :class="bookButtonStates[book.id]?.class"
+                  @click="addToCart(book.id)"
+                  :disabled="bookButtonStates[book.id]?.disabled"
+              >
+                {{ bookButtonStates[book.id]?.text }}
+              </button>
             </div>
-          </div>
-      </div>
-    </div>
-    <div class="column recommended-books">
-      <h2>Рекомендаціі - TOP 10</h2>
-      <div v-if="loadingBook">Loading recommended</div>
-      <div v-else class="book-grid">
-        <div v-for="book in recommendedBooks" :key="book.id" class="book-item">
-          <img :src="book.img" :alt="book.name" class="book-img" />
-          <!--          <img :src="logo" alt="logo" class="book-img" />-->
-          <div>
-            <h3>{{ book.name }}</h3>
-            <p>Автор: {{ book.authors.join(', ') }}</p>
-            <p>Жанр: {{ book.genres.join(', ')  }}</p>
-            <p>Мова: {{ book.lang }}</p>
-            <p class="age-rating">{{ book.age_rating }}+</p>
-            <p class="rating-container">
-              <img
-                  v-for="n in book.rating"
-                  :key="n"
-                  src="images/icon-star.png"
-                  alt="rating"
-                  class="rating"
-              />
-            </p>
-            <p>Ціна: {{ book.cost }} грн</p>
-            <p>Кількість сторінок: {{ book.number_of_page }}</p>
-            <p>Рік: {{ book.year }}</p>
           </div>
         </div>
       </div>
@@ -158,10 +177,9 @@
 import filtersNew from '../static_data/filters.json';
 import books from './../static_data/book.json'
 
-// import logo from '../assets/logo.png'
-// import iconStar from '../assets/icon-star.png'
+import { ref, onMounted, watch, reactive, computed } from 'vue';
 
-import { ref, onMounted, watch, reactive   } from 'vue';
+import { useAuthStore } from '@/stores/auth'
 
 export default {
   name: 'BookFilter',
@@ -176,12 +194,15 @@ export default {
       sort: 'DESC'
     });
 
+    const bookInCart = ref([]);
     const dataBookFilter = ref(null);
     const loadingFilter = ref(true);
 
     const loadingBook = ref(false);
     const searchBooks = ref(books.search);
     const recommendedBooks = ref(books.recommend);
+
+    const authStore = useAuthStore()
     const getFilters = async () => {
         try {
             const response = await fetch(`api/get_info`);
@@ -196,6 +217,75 @@ export default {
           loadingFilter.value = false;
         }
     };
+
+    const bookButtonStates = computed(() => {
+      const states = {}
+      const allBooks = [...searchBooks.value, ...recommendedBooks.value]
+
+      allBooks.forEach(book => {
+        if (!book?.id) return
+
+        const inCart = Array.isArray(bookInCart.value) &&
+            bookInCart.value.some(item => {
+              const itemId = typeof item === 'object' ? item?.id : item
+              return itemId === book.id
+            })
+
+        states[book.id] = {
+          text: inCart ? 'В кошику ✅' : 'Додати в кошик',
+          disabled: inCart,
+          class: inCart ? 'in-cart' : ''
+        }
+      })
+
+      return states
+    })
+    const addToCart = (id) => {
+
+      if (!authStore.isAuthenticate) {
+
+        const checkLocalStorageGuestSession = JSON.parse(localStorage.getItem('bookstore_guest_session')) || null;
+
+        if (checkLocalStorageGuestSession) {
+          if (!checkLocalStorageGuestSession.books.includes(id)) {
+            checkLocalStorageGuestSession.books.push(id);
+            localStorage.setItem('bookstore_guest_session', JSON.stringify(checkLocalStorageGuestSession));
+            bookInCart.value = checkLocalStorageGuestSession.books;
+            console.log('Книга добавлена в корзину:', id);
+          } else {
+            console.log('Эта книга уже в корзине:', id);
+          }
+        } else {
+          const guestSession = {
+            id: '',
+            name: '',
+            email: '',
+            password: '',
+            role: 'guest',
+            books: []
+          }
+
+          guestSession.books.push(id);
+          localStorage.setItem('bookstore_guest_session', JSON.stringify(guestSession));
+          bookInCart.value = guestSession.books;
+          console.log('Первая книга добавлена в корзину:', id);
+        }
+
+      } else {
+
+      const checkLocalStorage = JSON.parse(localStorage.getItem('bookstore_current_user')) || [];
+
+      if (!checkLocalStorage.books.includes(id)) {
+        checkLocalStorage.books.push(id);
+        localStorage.setItem('bookstore_current_user', JSON.stringify(checkLocalStorage));
+        bookInCart.value = checkLocalStorage.books;
+        console.log('Книга добавлена в корзину:', id);
+      } else {
+        console.log('Эта книга уже в корзине:', id);
+      }
+    }
+
+    }
 
     const getBooks = async (filters) => {
       try {
@@ -213,9 +303,10 @@ export default {
         }
 
         const { search, recommend } = await response.json();
-        console.log('SEARCH, RECOMMEND:', search, recommend);
+
         searchBooks.value = search
         recommendedBooks.value = recommend
+
       } catch (err) {
         console.log('ERROR:', err.message);
         return null;
@@ -274,6 +365,15 @@ export default {
 
     onMounted(async () => {
       await getFilters();
+      if (!authStore.isAuthenticate) {
+        const checkLocalStorageGuestSession = JSON.parse(localStorage.getItem('bookstore_guest_session')) || null
+        if (checkLocalStorageGuestSession){
+          bookInCart.value = checkLocalStorageGuestSession.books
+        }
+      } else {
+        const checkLocalStorage = JSON.parse(localStorage.getItem('bookstore_current_user')) || []
+        bookInCart.value = checkLocalStorage.books
+      }
     });
 
     return {
@@ -287,10 +387,10 @@ export default {
       applyFilters,
       searchBooks,
       recommendedBooks,
-      // logo,
-      // iconStar,
       dataBookFilter,
-      loadingBook
+      loadingBook,
+      addToCart,
+      bookButtonStates
     };
   }
 };
@@ -299,16 +399,9 @@ export default {
 
 <style scoped>
 
-.title{
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  padding: 1px 0;
-  margin: 0 20px;
-  background-color: rgba(211, 211, 211, 0.2);
-}
-
 .book-container {
   display: grid;
-  grid-template-columns: minmax(250px, 300px) 3fr 3fr;
+  grid-template-columns: minmax(250px, 300px) 3fr;
   gap: 20px;
   padding: 20px;
 }
@@ -409,10 +502,23 @@ button:hover {
   background-color: #0056b3;
 }
 
+.button_add_to_cart{
+  width: 100%;
+}
+
+.button_add_to_cart.in-cart {
+  background: #cccccc;
+  cursor: not-allowed;
+}
+
+.button_add_to_cart:hover:not(.in-cart) {
+  background: #45a049;
+}
+
 .book-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(250px, 2fr));
-  gap: 30px;
+  gap: 50px;
   justify-content: center;
 }
 
@@ -473,6 +579,13 @@ button:hover {
   text-align: center;
   text-transform: capitalize;
   font-weight: bold;
+  height: 45px;
+
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .book-item p {

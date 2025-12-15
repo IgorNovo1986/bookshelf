@@ -12,7 +12,7 @@
       "genres": [
         "Проза"
       ],
-      "img": "images/dug_up_graves.jpg",
+      "img": "/images/dug_up_graves.jpg",
       "authors": [
         "Шикін Павло"
       ]
@@ -29,7 +29,7 @@
       "genres": [
         "Проза"
       ],
-      "img": "images/internat.jpg",
+      "img": "/images/internat.jpg",
       "authors": [
         "Жадан Сергій"
       ]
@@ -46,7 +46,7 @@
       "genres": [
         "Проза"
       ],
-      "img": "images/arabesky.jpg",
+      "img": "/images/arabesky.jpg",
       "authors": [
         "Жадан Сергій"
       ]
@@ -63,7 +63,7 @@
       "genres": [
         "Проза"
       ],
-      "img": "images/vorosh.jpg",
+      "img": "/images/vorosh.jpg",
       "authors": [
         "Жадан Сергій"
       ]
@@ -80,7 +80,7 @@
       "genres": [
         "Проза"
       ],
-      "img": "images/zal.jpg",
+      "img": "/images/zal.jpg",
       "authors": [
         "Забужко Оксана"
       ]
@@ -97,7 +97,7 @@
       "genres": [
         "Проза"
       ],
-      "img": "images/gimn.jpg",
+      "img": "/images/gimn.jpg",
       "authors": [
         "Жадан Сергій"
       ]
@@ -114,7 +114,7 @@
       "genres": [
         "Проза"
       ],
-      "img": "images/travel.jpg",
+      "img": "/images/travel.jpg",
       "authors": [
         "Забужко Оксана"
       ]
@@ -131,7 +131,7 @@
       "genres": [
         "Проза"
       ],
-      "img": "images/mes.jpg",
+      "img": "/images/mes.jpg",
       "authors": [
         "Жадан Сергій"
       ]
@@ -148,7 +148,7 @@
       "genres": [
         "Проза"
       ],
-      "img": "images/surmachi.png",
+      "img": "/images/surmachi.png",
       "authors": [
         "Шикін Павло"
       ]
@@ -165,7 +165,7 @@
       "genres": [
         "Проза"
       ],
-      "img": "images/here.jpg",
+      "img": "/images/here.jpg",
       "authors": [
         "Забужко Оксана"
       ]
@@ -184,7 +184,7 @@
       "genres": [
         "Проза"
       ],
-      "img": "images/secret.jpg",
+      "img": "/images/secret.jpg",
       "authors": [
         "Забужко Оксана"
       ]
@@ -201,7 +201,7 @@
       "genres": [
         "Містичний детектив"
       ],
-      "img": "images/feathers.jpg",
+      "img": "/images/feathers.jpg",
       "authors": [
         "Netley Rebecca"
       ]
@@ -218,7 +218,7 @@
       "genres": [
         "Пригоди"
       ],
-      "img": "images/skarby.jpg",
+      "img": "/images/skarby.jpg",
       "authors": [
         "Довгопол Наталія"
       ]
@@ -235,7 +235,7 @@
       "genres": [
         "Фентезі"
       ],
-      "img": "images/hp3.jpeg",
+      "img": "/images/hp3.jpeg",
       "authors": [
         "Rowling Joanne"
       ]
@@ -252,7 +252,7 @@
       "genres": [
         "Пригоди"
       ],
-      "img": "images/kolaps.jpg",
+      "img": "/images/kolaps.jpg",
       "authors": [
         "Довгопол Наталія"
       ]
@@ -269,7 +269,7 @@
       "genres": [
         "Фентезі"
       ],
-      "img": "images/hp7.jpg",
+      "img": "/images/hp7.jpg",
       "authors": [
         "Rowling Joanne"
       ]
@@ -286,7 +286,7 @@
       "genres": [
         "Фентезі"
       ],
-      "img": "images/hp2.jpg",
+      "img": "/images/hp2.jpg",
       "authors": [
         "Rowling Joanne"
       ]
@@ -303,7 +303,7 @@
       "genres": [
         "Фентезі"
       ],
-      "img": "images/hp4.jpg",
+      "img": "/images/hp4.jpg",
       "authors": [
         "Rowling Joanne"
       ]
@@ -320,7 +320,7 @@
       "genres": [
         "Фентезі"
       ],
-      "img": "images/mondes.jpg",
+      "img": "/images/mondes.jpg",
       "authors": [
         "Pullman Philip"
       ]
@@ -337,7 +337,7 @@
       "genres": [
         "Містичний детектив"
       ],
-      "img": "images/whitep.jpg",
+      "img": "/images/whitep.jpg",
       "authors": [
         "Павлюк Ілларіон"
       ]
